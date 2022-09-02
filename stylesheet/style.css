@@ -30,4 +30,14 @@
 .isActive:hover{
     color:blueviolet;
 }
+.navbar-of-options>a{
+    white-space: nowrap;
+    color: #858585;
+    font-weight: 500;
+}
+.isOptionActive{
+    color:#5D5FEF !important;
+    background-color: #EEEFFF !important;
+    
+}
 /* navigation bar end */
