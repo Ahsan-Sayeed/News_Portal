@@ -45,8 +45,28 @@ body{
 }
 /* navigation bar end */
 
+/* card start */
+.news-description{
+    height:120px;
+    overflow: hidden; 
+    text-overflow: ellipsis;  
+    -webkit-line-clamp: 5;  
+    display: block;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+@media only screen and (max-width: 992px) {
+    .news-description{
+        -webkit-line-clamp: 3;
+        height:78px;
+    }
+}
+/* card end  */
+
+/* footer start  */
 footer{
     color: #949494;
     background-color:#FFFFFF;
     height: 70px;
 }
+/* footer end */
