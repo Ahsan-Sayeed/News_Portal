@@ -9,10 +9,21 @@ fetch(catagoryUrl)
 .then(e=>e.json())
 .then(e=>{
     e.data.news_category.forEach(v=>{
-        catagoryContainer.innerHTML += `<a class="nav-item nav-link" href="#" onclick="getData('${v.category_id}','${v.category_name}')">${v.category_name}</a>`;
+        catagoryContainer.innerHTML += `<a class="nav-item nav-link catagory" href="#" onclick="getData('${v.category_id}','${v.category_name}')">${v.category_name}</a>`;
     });
 })
 .catch(e=>console.log(e));
+
+//selection
+catagoryContainer.addEventListener('click',(e)=>{
+  for(let i=0;i<document.getElementsByClassName('catagory').length;i++){
+    document.getElementsByClassName('catagory')[i].classList.remove('isOptionActive');
+  }
+  e.target.classList.add('isOptionActive');
+})
+
+// by default active 
+getData('01','Breaking News');
 
 function getData(catagoryId,catagoryName){
     document.getElementById('spinner').classList.remove('d-none');
@@ -61,13 +72,13 @@ function getData(catagoryId,catagoryName){
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLongTitle">d...dynamic title</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="background-color:transparent;border:none">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
                           <div class="modal-body">
                             <div class="d-flex">
-                                <img src="" id='authorImage' class='ms-2 me-4' style="height:60px;width:60px;border-radius:100%">
+                                <img src="" id='authorImage' class='ms-2 me-3' style="height:50px;width:50px;border-radius:100%">
                                 <div style='line-height:0'>
                                     <h6 class='mt-2' id="authorName">author name</h6>
                                     <span style="font-size:12px;" id="autorTimeData">Time and date</span>

@@ -43,6 +43,10 @@ body{
     background-color: #EEEFFF !important;
     
 }
+#catagoryContainer>a:first-child{
+    color:#56578e !important;
+    background-color: #f9d4f7 !important;
+}
 /* navigation bar end */
 
 /* card start */
