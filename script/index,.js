@@ -1,6 +1,8 @@
+// url and api 
 const catagoryUrl = 'https://openapi.programming-hero.com/api/news/categories';
 const newsUrl = 'https://openapi.programming-hero.com/api/news/category/';
 const newsDetailsUrl = 'https://openapi.programming-hero.com/api/news/';
+// selectors
 const catagoryContainer = document.getElementById('catagoryContainer');
 const newsContainer = document.getElementById('newsContainer');
 const itemFound = document.getElementById('itemFound');
@@ -25,6 +27,7 @@ catagoryContainer.addEventListener('click',(e)=>{
 // by default active 
 getData('01','Breaking News');
 
+// cards and modals
 function getData(catagoryId,catagoryName){
     document.getElementById('spinner').classList.remove('d-none');
     newsContainer.innerHTML="";
@@ -38,8 +41,8 @@ function getData(catagoryId,catagoryName){
             <div class="card-body row g-1">
               <img src="${v.thumbnail_url}" alt="" class="col-12 col-md-4 col-lg-2" style="height: 250px;border-radius: 12px;">
               <div class="col-12 col-md-8 col-lg-10 px-lg-4 pt-3 px-md-4">
-                <h4>${v.title}</h4>
-                <p class="news-description" id="newsDesc">${v.details}</p>
+                <h4 style="font-family:sens-serif">${v.title}</h4>
+                <p class="news-description" id="newsDesc" style="color:grey">${v.details}</p>
                   <div class="row">
                     <div class="col d-flex align-items-center">
                       <img src="${v.author.img}" alt="" style="height:40px;width:40px;border-radius:100%">
@@ -108,6 +111,7 @@ function getData(catagoryId,catagoryName){
     .catch(e=>console.log(e));
 }
 
+// modal access function 
 function newsDetails(id){
     fetch(newsDetailsUrl+id)
     .then(e=>e.json())
@@ -119,7 +123,6 @@ function newsDetails(id){
             document.getElementById('authorImage').src= value.author.img;
             document.getElementById('authorName').innerText = value.author.name===null||value.author.name===''?"No data available":value.author.name;
             document.getElementById('autorTimeData').innerText = value.author.published_date===null?"No data available":value.author.published_date;
-            console.log(value.img)
         });
     })
     .catch(e=>console.log(e));
