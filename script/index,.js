@@ -34,6 +34,9 @@ function getData(catagoryId,catagoryName){
     fetch(newsUrl+catagoryId)
     .then(e=>e.json())
     .then(e=>{
+        // data sorting by total_view 
+        e.data.sort((a,b)=>b.total_view-a.total_view);
+        
         itemFound.innerText = e.data.length!==0?`${e.data.length} items found for category ${catagoryName}`:`No items found for catagory ${catagoryName}`;
         e.data.forEach(v=>{
             newsContainer.innerHTML += `
